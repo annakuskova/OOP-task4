@@ -39,7 +39,8 @@ public class Four {
 
         return result.trim();
     }
-
+    
+    // группирует строку в кластер скобок
     public static String[] split(String str) {
         List<String> list = new ArrayList<>();
         int m = 0;
@@ -59,7 +60,9 @@ public class Four {
         }
         return list.toArray(new String[list.size()]);
     }
-
+    
+    // две функции toCamelCase () и toSnakeCase (), каждая из которых берет
+    //одну строку и преобразует ее либо в camelCase, либо в snake_case
     public static String toCamelCase(String str) {
         String[] tokens = str.split("_");
         for (int i = 1; i < tokens.length; i++) {
@@ -72,6 +75,7 @@ public class Four {
         return str.replaceAll("([A-Z])", "_$0").toLowerCase();
     }
 
+    //вычисляет сверхурочную работу и оплату, связанную с сверхурочной работой
     public static String overTime(double[] work) {
         double sum;
         if (work[1] <= 17) {
@@ -83,6 +87,8 @@ public class Four {
         return ('$' + String.valueOf(sum));
     }
 
+    //принимает вес и рост (в килограммах, фунтах,
+    //метрах или дюймах) и возвращает ИМТ и связанную с ним категорию
     public static String BMI(String weight, String height) {
         double amountOfWeight = Double.parseDouble(weight.split(" ")[0]);
         double amountOfHeight = Double.parseDouble(height.split(" ")[0]);
@@ -108,6 +114,9 @@ public class Four {
         return out;
     }
 
+    //принимает число и возвращает его мультипликативное
+    //постоянство, которое представляет собой количество раз, которое вы должны
+    //умножать цифры в num, пока не достигнете одной цифры.
     public static int bugger(int num) {
         int count = 0;
         int number = num;
@@ -124,6 +133,8 @@ public class Four {
         return count;
     }
 
+    //преобразует строку в звездную стенографию. 
+    //Если символ повторяется n раз, преобразуйте его в символ*n.
     public static String toStarShorthand(String str) {
         int count = 1;
         char let = str.charAt(0);
@@ -147,6 +158,7 @@ public class Four {
         return newStr;
     }
 
+    //возвращает true, если две строки рифмуются, и false в противном случае
     public static boolean doesRhyme(String str1, String str2) {
         str1 = str1.substring(str1.lastIndexOf(" ") + 1);
         str2 = str2.substring(str2.lastIndexOf(" ") + 1);
@@ -166,6 +178,9 @@ public class Four {
         return res1.equalsIgnoreCase(res2);
     }
 
+    //я принимает два целых числа и возвращает true, если
+    //число повторяется три раза подряд в любом месте в num1 и то же самое число
+    //повторяется два раза подряд в num2
     public static boolean trouble(long a, long b) {
         String aa = Long.toString(a);
         String bb = Long.toString(b);
@@ -184,6 +199,7 @@ public class Four {
         return false;
     }
 
+    //возвращает общее количество уникальных символов между всеми парами концов книги
     public static int countUniqueBooks(String str, char c) {
         Map<Character, Integer> values = new HashMap<>();
         boolean start = true;
